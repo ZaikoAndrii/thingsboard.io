@@ -114,7 +114,7 @@ export const tbSelfManagedFaq: FaqCategory[] = [
 			{
 				id: 'pe-pay-as-you-go-payment-failure',
 				question: 'What happens if my payment fails?',
-				answer: '<p>If a payment fails, Stripe will retry the charge several times. If unsuccessful, your license will be suspended.</p>',
+				answer: '<p>If a payment fails, Stripe will retry the charge several times. If unsuccessful, your license becomes inactive and the platform moves to restricted operation: the management interface and API are locked, devices already connected keep sending data, and nothing is deleted. Normal operation resumes as soon as the payment goes through and the license is validated again (see the <a target="_blank" href="/legal/license-agreement/" rel="noopener noreferrer">License Agreement</a>, clause 4.6).</p>',
 			},
 			{
 				id: 'pe-pay-as-you-go-cancel-subscription',
@@ -139,7 +139,7 @@ export const tbSelfManagedFaq: FaqCategory[] = [
 			{
 				id: 'pe-pay-as-you-go-subscription-expiry',
 				question: "What happens if I don't renew my subscription?",
-				answer: '<p>Your license will become inactive, and your ThingsBoard instance will be suspended.</p>',
+				answer: '<p>Your license becomes inactive at the end of the paid period, and the platform moves to restricted operation: the management interface and API are locked, devices already connected keep sending data, and nothing is deleted. It returns to normal operation as soon as a valid license is restored (see the <a target="_blank" href="/legal/license-agreement/" rel="noopener noreferrer">License Agreement</a>, clause 4.6).</p>',
 			},
 			{
 				id: 'pe-pay-as-you-go-subscription-transfer',
@@ -185,7 +185,7 @@ export const tbSelfManagedFaq: FaqCategory[] = [
 			{
 				id: 'pe-pay-as-you-go-internet-requirement',
 				question: 'Do I need an internet connection to use the on-premises license?',
-				answer: '<p>Yes, an internet connection is required for periodic license verification. The system checks the license once per hour, and if the connection is not restored within 48 hours, the platform shuts down. This process ensures proper license management while allowing temporary connectivity issues. For more details, please refer to the license check <a target="_blank" href="/docs/license-server/what-is-license-server/" rel="noopener noreferrer">description</a>. Offline mode is also possible as an add-on to the Perpetual license. <a target="_blank" href="/contact-us/" rel="noopener noreferrer">Contact our sales team</a> to know more.</p>',
+				answer: '<p>Yes, an internet connection is required for periodic license verification. The system checks the license once per hour and tolerates interruptions of up to 48 hours. If no successful check happens within 48 hours, the platform moves to restricted operation: the management interface and API are locked, devices already connected keep sending data, and nothing is deleted. Normal operation resumes on the next successful check (see the <a target="_blank" href="/legal/license-agreement/" rel="noopener noreferrer">License Agreement</a>, clauses 4.6 and 5.1). For more details, please refer to the license check <a target="_blank" href="/docs/license-server/what-is-license-server/" rel="noopener noreferrer">description</a>. Offline mode is also possible as an add-on to the Perpetual license. <a target="_blank" href="/contact-us/" rel="noopener noreferrer">Contact our sales team</a> to know more.</p>',
 			},
 			{
 				id: 'pe-pay-as-you-go-offline-access',
@@ -275,7 +275,7 @@ export const tbSelfManagedFaq: FaqCategory[] = [
 				// "Billing & Payments" item above, and item ids are DOM ids.
 				id: 'pe-pay-as-you-go-cancel-consequences',
 				question: 'What happens if I cancel my subscription?',
-				answer: '<p>Your license will become inactive, and your ThingsBoard instance will be stopped.</p>',
+				answer: '<p>Your license becomes inactive at the end of the current billing period, and the platform moves to restricted operation: the management interface and API are locked, devices already connected keep sending data, and nothing is deleted. It returns to normal operation as soon as a valid license is restored (see the <a target="_blank" href="/legal/license-agreement/" rel="noopener noreferrer">License Agreement</a>, clause 4.6).</p>',
 			},
 			{
 				id: 'pe-pay-as-you-go-switch-perpetual',
