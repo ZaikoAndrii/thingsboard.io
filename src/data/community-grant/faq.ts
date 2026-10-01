@@ -167,12 +167,12 @@ export const communityGrantFaq: FaqCategory[] = [
 				id: 'cg-device-limit',
 				question: 'What happens when I reach my device limit?',
 				answer:
-					'<p>Nothing breaks. Existing devices, data, and services keep running normally; new devices above your capacity are simply not added, and the platform shows a prompt to increase your licensed capacity.</p><p>You can add devices yourself, at any time, straight from the License Portal. It is self-service, it takes effect immediately, and nothing about your running solution stops while you do it. Devices are sold individually at up to 1 USD each, and the price per device goes down as the volume grows.</p>',
+					'<p>Nothing breaks. Existing devices, data, and services keep running normally; new devices above your capacity are simply not added, and the platform shows a prompt to increase your licensed capacity.</p><p>You can add devices yourself, at any time, straight from the License Portal. It is self-service, it takes effect immediately, and nothing about your running solution stops while you do it. Additional devices are 1 USD each, as set out in Appendix A to the <a href="/legal/license-agreement/">License Agreement</a>.</p>',
 			},
 			{
 				id: 'cg-internet-required',
 				question: 'Does my deployment need internet access to keep running?',
-				answer: `<p>On a standard key, yes. The platform checks in with our license server periodically and tolerates interruptions of up to 48 hours. After that, it shuts down until the next successful check. Nothing is deleted, and it comes back as soon as the connection does. ${contact('Contact us')} if your deployment can only run without external connectivity.</p>`,
+				answer: `<p>On a standard key, yes. The platform checks in with our license server periodically and tolerates interruptions of up to 48 hours. After that, the management interface and API lock until the next successful check; devices already connected keep sending data, and nothing is deleted. It comes back as soon as the connection does. ${contact('Contact us')} if your deployment can only run without external connectivity.</p>`,
 			},
 		],
 	},
@@ -190,7 +190,7 @@ export const communityGrantFaq: FaqCategory[] = [
 				id: 'cg-what-can-i-buy',
 				question: 'What can I buy, and when would I need to?',
 				answer:
-					'<p>Three things, independently of each other: more device capacity, production servers, or the Professional Pack. You need them only if you grow beyond your granted capacity or want capabilities your grant does not include.</p><p>Extra capacity is a one-time perpetual purchase, not a subscription, and your Community Grant license stays in place when you buy it. Devices are sold individually at up to 1 USD each, with the price per device going down as the volume grows.</p>',
+					'<p>Three things, independently of each other: more device capacity, production servers, or the Professional Pack. You need them only if you grow beyond your granted capacity or want capabilities your grant does not include.</p><p>Extra capacity is a one-time perpetual purchase, not a subscription, and your Community Grant license stays in place when you buy it. Additional devices are 1 USD each, as set out in Appendix A to the <a href="/legal/license-agreement/">License Agreement</a>.</p>',
 			},
 			{
 				id: 'cg-professional-pack',
