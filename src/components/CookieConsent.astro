@@ -15,6 +15,12 @@ const categories = [
 		title: 'Marketing',
 		description: 'Show us which of our ad campaigns bring visitors to the site (Google Ads).',
 	},
+	{
+		id: 'media',
+		title: 'External media',
+		description:
+			'Load content from other services when you use it, such as site search by Google Programmable Search. Google sets its own cookies and shows ads in the search results.',
+	},
 ];
 ---
 
@@ -39,7 +45,7 @@ const categories = [
 	</section>
 	<!-- Shown before first paint rather than from the module script, so it never lands late as the LCP element. -->
 	<script is:inline>
-		if (!window.tbConsent) document.currentScript.previousElementSibling.hidden = false;
+		if (window.tbConsent?.analytics === undefined) document.currentScript.previousElementSibling.hidden = false;
 	</script>
 	<dialog class="pm" aria-labelledby="pm-title">
 		<div class="pm__header">
@@ -103,8 +109,8 @@ const categories = [
 	const dialog = root.querySelector<HTMLDialogElement>('.pm')!;
 	const switches = [...dialog.querySelectorAll<HTMLInputElement>('input[data-category]')];
 
-	function saveConsent(analytics: boolean, marketing: boolean) {
-		const consent: TbConsent = { v: CONSENT_VERSION, analytics, marketing };
+	function saveConsent(analytics: boolean | undefined, marketing: boolean | undefined, media: boolean) {
+		const consent: TbConsent = { v: CONSENT_VERSION, analytics, marketing, media };
 		window.tbConsent = consent;
 		syncAttributionStorage();
 		const secure = location.protocol === 'https:' ? '; Secure' : '';
@@ -121,23 +127,25 @@ const categories = [
 		// After the update above, so the container starts from the granted state.
 		window.tbLoadGtm();
 
-		banner.hidden = true;
+		if (analytics !== undefined) banner.hidden = true;
 		if (dialog.open) dialog.close();
 		notifyConsentChange();
 	}
 
 	function showPreferences() {
 		const consent = window.tbConsent;
-		switches.forEach((s) => (s.checked = consent?.[s.dataset.category as 'analytics' | 'marketing'] ?? false));
+		switches.forEach((s) => (s.checked = consent?.[s.dataset.category as Exclude<keyof TbConsent, 'v'>] ?? false));
 		dialog.showModal();
 		lockScroll();
 	}
 
 	const choice = (id: string) => switches.find((s) => s.dataset.category === id)?.checked ?? false;
 	const actions: Record<string, () => void> = {
-		'accept-all': () => saveConsent(true, true),
-		'reject-all': () => saveConsent(false, false),
-		save: () => saveConsent(choice('analytics'), choice('marketing')),
+		'accept-all': () => saveConsent(true, true, true),
+		'reject-all': () => saveConsent(false, false, false),
+		save: () => saveConsent(choice('analytics'), choice('marketing'), choice('media')),
+		// From an External media placeholder: allows that category only. Without an earlier answer the banner stays up.
+		'accept-media': () => saveConsent(window.tbConsent?.analytics, window.tbConsent?.marketing, true),
 		'show-preferences': showPreferences,
 	};
 
