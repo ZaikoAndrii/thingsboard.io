@@ -166,7 +166,9 @@ const LAST_UPDATED = '[date of publication]';
 							<td>
 								Distinguishes visitors and keeps the state of a visit, so we can count visits and page views. If
 								you allowed Analytics cookies, our contact forms also send the Google Analytics client ID with your
-								message, so that we can connect your request with how you found us.
+								message, so that we can connect your request with how you found us. With Analytics consent, Google
+								Analytics also sends cookieless, non-personalised measurement signals to Google Ads; no advertising
+								cookies are set and no personalised ads result from this.
 							</td>
 							<td>_ga; _ga_PMZCBFYH5Y</td>
 							<td>Up to 2 years (browsers may cap it at 400 days)</td>
@@ -181,10 +183,12 @@ const LAST_UPDATED = '[date of publication]';
 							<td>Analytics</td>
 							<td>
 								Records how pages are used (session recordings, heatmaps), so we can see where visitors get stuck.
-								Microsoft may set further cookies on its own domains.
+								Typed text is masked before it leaves your browser. _clck and _clsk are set on thingsboard.io and are
+								deleted if you withdraw Analytics; the others are set by Microsoft on its own domains (clarity.ms,
+								bing.com) and can only be removed in your browser settings.
 							</td>
-							<td>_clck; _clsk</td>
-							<td>See Microsoft's list</td>
+							<td>_clck; _clsk (thingsboard.io); CLID; MUID; ANONCHK; SM; MR (Microsoft domains)</td>
+							<td>_clck up to 1 year; _clsk 1 day; Microsoft-domain cookies: see Microsoft's list</td>
 							<td>
 								<a href="https://learn.microsoft.com/en-us/clarity/setup-and-installation/cookie-list"
 									>Microsoft Clarity cookie list</a
@@ -271,7 +275,8 @@ const LAST_UPDATED = '[date of publication]';
 							<td>Strictly necessary</td>
 							<td>
 								The state of the chat widget: a visitor identifier, your language and, once you start a chat, the
-								chat session. Nothing is stored until you click the chat button.
+								chat session. Nothing is stored until you click the chat button. When you open the chat, it loads its
+								fonts from Google Fonts (fonts.googleapis.com), so your IP address is sent to Google.
 							</td>
 							<td>ygc-chatbot-&lt;id&gt;, lastActiveTime (Local Storage); widget_instance_&lt;id&gt;, timeSpent (Session Storage)</td>
 							<td>Until you clear your browser data; session keys until you close the tab</td>
